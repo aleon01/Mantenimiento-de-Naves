@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Mantenimiento de Naves</string>
+
+    <string name="txtmantenimiento">CONTROL Y MANTENIMIENTO DE NAVES</string>
+    <string name="txtUsuario">Correo</string>
+    <string name="txtContraseña">Contraseña</string>
+    <string name="btniniciar_sesion">INICIAR SESIÓN</string>
+    <string name="btnRegistro">REGISTRARSE</string>
+    <string name="txtrestaurar">RESTAURAR CONTRASEÑA</string>
+
+    <string name="txtRegEmpleados">Registro de Empleados</string>
+    <string name="txtNombre">Nombre</string>
+    <string name="txtApellido">Apellido</string>
+    <string name="txtIdentificación"># Identificación</string>
+    <string name="txtTelefono">Telefono</string>
+    <string name="txtDireccion">Direccion</string>
+    <string name="txtCorreo">Correo electronico</string>
+    <string name="txtRegContrasena">Contraseña</string>
+    <string name="txtRegConfContrasena">Confirma contraseña</string>
+    <string name="btnRegistroEmp">REGISTRARSE</string>
+    <string name="txtCodigo">Código de Ingreso</string>
+    <string name="btnregistrarse">Registrarse</string>x
+    <string-array name="tipodocumento">
+        <item>Tipo de documento</item>
+        <item>Cédula de ciudadanía</item>
+        <item>Cédula de extranjeria</item>
+    </string-array>
+</resources>
