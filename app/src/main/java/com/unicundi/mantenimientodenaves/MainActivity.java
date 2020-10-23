@@ -76,4 +76,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(registro);
     }
 
+    public void irARecuperar (View view){
+        Intent recuperar =new Intent(this, Recuperar.class);
+        startActivity(recuperar);
+    }
+
 }

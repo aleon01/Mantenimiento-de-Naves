@@ -116,12 +116,13 @@ public class RegistroUser extends AppCompatActivity {
                                            user.setRol(rol);
                                            user.setEstado(estado);
                                            databaseReference.child("usuarios").child(user.getNombre()).setValue(user);
+                                           Intent inicio =new Intent(RegistroUser.this, MainActivity.class);
+                                           startActivity(inicio);
                                            /**AlertDialog.Builder alerta = new AlertDialog.Builder(RegistroUser.this);
                                            alerta.setMessage("Registro Exitoso").setCancelable(true).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                                                @Override
                                                public void onClick(DialogInterface dialog, int which) {
-                                                   Intent menu =new Intent(RegistroUser.this, MainActivity.class);
-                                                   startActivity(menu);
+
                                                }
                                            });*/
                                            Toast.makeText(getApplicationContext(), "Usuario creado." + email, Toast.LENGTH_SHORT).show();
