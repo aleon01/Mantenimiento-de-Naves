@@ -7,4 +7,97 @@
     android:background="@drawable/menu"
     tools:context=".Menu">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MENÚ"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold|italic" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="#94131212"
+                android:tint="#ffffff"
+            app:srcCompat="@android:drawable/ic_menu_day" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:tint="#ffffff"
+                android:background="#94131212"
+                app:srcCompat="@android:drawable/ic_menu_sort_alphabetically" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:tint="#ffffff"
+                android:background="#94131212"
+                app:srcCompat="@android:drawable/ic_menu_info_details" />
+
+            <Space
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:tint="#ffffff"
+                android:layout_marginRight="10sp"
+                
+                android:background="#94131212"
+                app:srcCompat="?attr/actionModePasteDrawable" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
