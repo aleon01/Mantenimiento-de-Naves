@@ -48,7 +48,7 @@
                     android:layout_height="50dp" />
 
                 <EditText
-                    android:id="@+id/correo"
+                    android:id="@+id/txt_correo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
@@ -64,10 +64,10 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="20dp" />
+                    android:layout_height="16dp" />
 
                 <EditText
-                    android:id="@+id/contraseña"
+                    android:id="@+id/txt_contrasena"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
