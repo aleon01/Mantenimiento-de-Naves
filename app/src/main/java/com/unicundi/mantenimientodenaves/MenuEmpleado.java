@@ -6,22 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Menu extends AppCompatActivity {
+public class MenuEmpleado extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_menu_empleado);
     }
 
     public void irAInsumos (View view){
         Intent insumos =new Intent(this, Insumos.class);
         startActivity(insumos);
     }
-
-    public void irAEmpleados (View view){
-        Intent insumos =new Intent(this, ListaEmp.class);
-        startActivity(insumos);
+    public void irAFacturas (View view){
+        Intent facturas =new Intent(this, Facturas.class);
+        startActivity(facturas);
     }
 
     public void irATareas (View view){

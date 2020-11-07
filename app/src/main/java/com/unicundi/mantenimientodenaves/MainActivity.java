@@ -1,84 +1,58 @@
 package com.unicundi.mantenimientodenaves;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText correo;
-    private EditText contrasena;
-    private FirebaseAuth mAuth;
-
+    Button btn_administrador;
+    Button btn_empleado;
+    private FirebaseAuth Auth;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Auth= FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
-        correo = findViewById(R.id.txt_correo);
-        contrasena = findViewById(R.id.txt_contrasena);
-        mAuth = FirebaseAuth.getInstance();
-
+        preferences = getApplicationContext().getSharedPreferences("typeUser",MODE_PRIVATE);
+        final SharedPreferences.Editor editor = preferences.edit();
+        btn_administrador = findViewById(R.id.btn_Admi);
+        btn_empleado = findViewById(R.id.btn_Empleado);
+        btn_administrador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putString("usuarios","Administrador");
+                editor.apply();
+                login();
+            }
+        });
+        btn_empleado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putString("usuarios","empleados");
+                editor.apply();
+                login();
+            }
+        });
     }
 
-    public void irAMenu(View view){
-        String correo1 = correo.getText().toString();
-        String contrasena1 = contrasena.getText().toString();
-
-        mAuth.signInWithEmailAndPassword(correo1, contrasena1)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent menu =new Intent(getApplicationContext(), Menu.class);
-                            startActivity(menu);
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                            // ...
-                        }
-
-                        // ...
-                    }
-                });
-
+    private void login() {
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
     }
+    // saber si ya inicio sesion o no
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
-    }
-
-
-    public void irARegistro (View view){
-        Intent registro =new Intent(this, RegistroUser.class);
-        startActivity(registro);
-    }
-
-    public void irARecuperar (View view){
-        Intent recuperar =new Intent(this, Recuperar.class);
-        startActivity(recuperar);
+        FirebaseUser currentUser = Auth.getCurrentUser();
     }
 
 }

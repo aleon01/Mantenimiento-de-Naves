@@ -8,117 +8,31 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#B0000000"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="360dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="468dp">
 
-
-        <ScrollView
+        <Button
+            android:id="@+id/btn_Admi"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Admi" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:gravity="center"
-                    android:text="@string/txtmantenimiento"
-                    android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30sp"
-                    android:textStyle="bold|italic" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-                <EditText
-                    android:id="@+id/txt_correo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:ems="10"
-                    android:hint="@string/txtUsuario"
-                    android:inputType="textEmailAddress"
-                    android:shadowColor="#FFFFFF"
-                    android:textColor="#FFFFFF"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorHint="#FFFFFFFF"
-                    android:textColorLink="#FFFFFF"
-                    android:textCursorDrawable="@null" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp" />
-
-                <EditText
-                    android:id="@+id/txt_contrasena"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:ems="10"
-                    android:hint="@string/txtContraseña"
-                    android:inputType="textPassword"
-                    android:shadowColor="#FFFFFF"
-                    android:textColor="#FFFFFF"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
-                    android:textColorLink="#FFFFFF"
-                    android:textCursorDrawable="@null" />
-
-                <Button
-                    android:id="@+id/button"
-                    style="@android:style/Widget.Button.Inset"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:onClick="irAMenu"
-                    android:text="@string/btniniciar_sesion"
-                    android:textColor="#000000"
-                    android:textColorHighlight="#FFFFFF"
-                    android:textColorLink="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/btnRegistro"
-                    style="@android:style/Widget.Button.Inset"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:onClick="irARegistro"
-                    android:text="@string/btnRegistro" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp" />
-
-                <Button
-                    android:id="@+id/button3"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="irARecuperar"
-                    android:text="@string/txtrestaurar"
-                    android:textColor="#FFFFFF"
-                    android:textColorHighlight="#00FFFFFF"
-                    android:textColorHint="#00FFFFFF"
-                    android:textColorLink="#00FFFFFF"
-                    android:textStyle="italic" />
-            </LinearLayout>
-        </ScrollView>
-
-
+        <Button
+            android:id="@+id/btn_Empleado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Empleado" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

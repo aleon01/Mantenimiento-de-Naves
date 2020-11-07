@@ -25,4 +25,6 @@
         <item>Cédula de ciudadanía</item>
         <item>Cédula de extranjeria</item>
     </string-array>
+    <string name="txtMostEmpleados">Empleados</string>
+    <string name="btnMostrar">Mostrar</string>x
 </resources>

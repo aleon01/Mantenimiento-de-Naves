@@ -27,7 +27,7 @@ import com.unicundi.mantenimientodenaves.model.Usuarios;
 public class RegistroUser extends AppCompatActivity {
 
     Usuarios user = new Usuarios();
-    private EditText nombreEdit, apellidoEdit, identifiacionEdit, direccionEdit, telefonoEdit, correoEdit, codigo, contrasenaEdit, confirmarcontrasenaEdit;
+    private EditText nombreEdit, apellidoEdit, identifiacionEdit, direccionEdit, telefonoEdit, correoEdit, codigoedit, contrasenaEdit, confirmarcontrasenaEdit;
 
     final FirebaseAuth _auth = FirebaseAuth.getInstance();
     FirebaseDatabase firebaseDatabase;
@@ -36,6 +36,7 @@ public class RegistroUser extends AppCompatActivity {
     Spinner documentoSpinner;
     String[] documento;
 
+    private String codigos;
     private String nombre;
     private String apellido;
     private String tipoIdentificacion;
@@ -55,7 +56,6 @@ public class RegistroUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_user);
-
         nombreEdit = findViewById(R.id.editTextNombre);
         apellidoEdit = findViewById(R.id.editTextApellido);
         documentoSpinner = (Spinner) findViewById(R.id.tipoIdentificacionEdit);
@@ -81,6 +81,7 @@ public class RegistroUser extends AppCompatActivity {
     }
 
     public void registros(View view){
+        codigos = _auth.getCurrentUser().getUid();
         nombre = nombreEdit.getText().toString();
         apellido = apellidoEdit.getText().toString();
         tipoIdentificacion = documentoSpinner.getSelectedItem().toString();
@@ -100,7 +101,7 @@ public class RegistroUser extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                        if (task.isSuccessful()) {
-
+                           user.setCod(codigos);
                            user.setNombre(nombre);
                            user.setApellido(apellido);
                            user.setTidentificacion(tipoIdentificacion);
@@ -115,16 +116,9 @@ public class RegistroUser extends AppCompatActivity {
                                            user.setContrasena(password);
                                            user.setRol(rol);
                                            user.setEstado(estado);
-                                           databaseReference.child("usuarios").child(user.getNombre()).setValue(user);
+                                           databaseReference.child("usuarios").child("empleados").child(user.getCod()).setValue(user);
                                            Intent inicio =new Intent(RegistroUser.this, MainActivity.class);
                                            startActivity(inicio);
-                                           /**AlertDialog.Builder alerta = new AlertDialog.Builder(RegistroUser.this);
-                                           alerta.setMessage("Registro Exitoso").setCancelable(true).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                                               @Override
-                                               public void onClick(DialogInterface dialog, int which) {
-
-                                               }
-                                           });*/
                                            Toast.makeText(getApplicationContext(), "Usuario creado." + email, Toast.LENGTH_SHORT).show();
                                        }else{
                                            contrasenaEdit.setError("Ingrese min 6 caracteres");
@@ -192,17 +186,9 @@ public class RegistroUser extends AppCompatActivity {
         }
     }
 
-    /**public void tDocumento(){
-        documentoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                user.setTidentificacion(documento[position]);
-            }
+    public void irALista (View view){
+        Intent lista =new Intent(this, ListaEmp.class);
+        startActivity(lista);
+    }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(RegistroUser.this, "Seleccione un item", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
 }

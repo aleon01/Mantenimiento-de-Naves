@@ -1,7 +1,7 @@
 package com.unicundi.mantenimientodenaves.model;
 
 public class Usuarios {
-    private int cod;
+    private String cod;
     private String nombre;
     private String apellido;
     private String tidentificacion;
@@ -16,13 +16,14 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public int getCod() {
-        return cod;
+    public Usuarios(String nombre, String apellido) {
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
-    public void setCod(int cod) {
-        this.cod = cod;
-    }
+    public String getCod() { return cod; }
+
+    public void setCod(String cod) { this.cod = cod; }
 
     public String getNombre() {
         return nombre;
@@ -106,7 +107,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return nombre;
+        return nombre +" "+ apellido;
     }
 
 }
