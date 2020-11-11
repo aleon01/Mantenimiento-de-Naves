@@ -1,15 +1,12 @@
 package com.unicundi.mantenimientodenaves;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -20,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.unicundi.mantenimientodenaves.model.Usuarios;
@@ -29,7 +27,8 @@ public class RegistroUser extends AppCompatActivity {
     Usuarios user = new Usuarios();
     private EditText nombreEdit, apellidoEdit, identifiacionEdit, direccionEdit, telefonoEdit, correoEdit, codigoedit, contrasenaEdit, confirmarcontrasenaEdit;
 
-    final FirebaseAuth _auth = FirebaseAuth.getInstance();
+    private FirebaseAuth mAuth;
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -67,6 +66,7 @@ public class RegistroUser extends AppCompatActivity {
         contrasenaEdit = findViewById(R.id.editTextContrasena);
         confirmarcontrasenaEdit = findViewById(R.id.editTextConfContrasena);
 
+        mAuth = FirebaseAuth.getInstance();
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, documento);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         documentoSpinner.setAdapter(adapter);
@@ -81,7 +81,8 @@ public class RegistroUser extends AppCompatActivity {
     }
 
     public void registros(View view){
-        codigos = _auth.getCurrentUser().getUid();
+
+        //codigos = mAuth.getCurrentUser().getUid();
         nombre = nombreEdit.getText().toString();
         apellido = apellidoEdit.getText().toString();
         tipoIdentificacion = documentoSpinner.getSelectedItem().toString();
@@ -91,17 +92,17 @@ public class RegistroUser extends AppCompatActivity {
         email = correoEdit.getText().toString();
         password = contrasenaEdit.getText().toString();
         confcontrasena = confirmarcontrasenaEdit.getText().toString();
-        rol = 3;
+        rol = 2;
         estado = 1;
         if(password.equals(confcontrasena)){
             if (nombre.isEmpty() || apellido.isEmpty() || identificacion.isEmpty() || telefono.isEmpty() || direccion.isEmpty() || email.isEmpty() || password.isEmpty()){
                 validacion();
             }else {
-                _auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistroUser.this, new OnCompleteListener<AuthResult>(){
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistroUser.this, new OnCompleteListener<AuthResult>(){
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                        if (task.isSuccessful()) {
-                           user.setCod(codigos);
+                           //user.setCod(codigos);
                            user.setNombre(nombre);
                            user.setApellido(apellido);
                            user.setTidentificacion(tipoIdentificacion);
@@ -116,7 +117,7 @@ public class RegistroUser extends AppCompatActivity {
                                            user.setContrasena(password);
                                            user.setRol(rol);
                                            user.setEstado(estado);
-                                           databaseReference.child("usuarios").child("empleados").child(user.getCod()).setValue(user);
+                                           databaseReference.child("usuarios").child("empleados").child(mAuth.getCurrentUser().getUid()).setValue(user);
                                            Intent inicio =new Intent(RegistroUser.this, MainActivity.class);
                                            startActivity(inicio);
                                            Toast.makeText(getApplicationContext(), "Usuario creado." + email, Toast.LENGTH_SHORT).show();
@@ -184,11 +185,6 @@ public class RegistroUser extends AppCompatActivity {
         } else if(contrasena.equals("")){
             contrasenaEdit.setError("Requerido");
         }
-    }
-
-    public void irALista (View view){
-        Intent lista =new Intent(this, ListaEmp.class);
-        startActivity(lista);
     }
 
 }

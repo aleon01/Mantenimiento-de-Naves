@@ -14,6 +14,10 @@ public class MenuEmpleado extends AppCompatActivity {
         setContentView(R.layout.activity_menu_empleado);
     }
 
+    public void irAPerfilEmpleado (View view){
+        Intent perfilEmpleado =new Intent(this, PerfilEmpleado.class);
+        startActivity(perfilEmpleado);
+    }
     public void irAInsumos (View view){
         Intent insumos =new Intent(this, Insumos.class);
         startActivity(insumos);

@@ -50,7 +50,7 @@ public class ListaEmp extends AppCompatActivity {
     }
 
     public void getUsuarios(){
-        Query dataQuery = mDatabase.child("usuarios").orderByChild("cod").equalTo("1234");
+        Query dataQuery = mDatabase.child("usuarios").child("empleados");
         dataQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -78,5 +78,18 @@ public class ListaEmp extends AppCompatActivity {
 
             }
         });
+    }
+    public void eliminar(){
+        /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User account deleted.");
+                        }
+                    }
+                });*/
     }
 }

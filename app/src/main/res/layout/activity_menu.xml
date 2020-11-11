@@ -8,13 +8,34 @@
     tools:context=".Menu">
 
     <LinearLayout
-        android:layout_width="364dp"
-        android:layout_height="534dp"
+        android:layout_width="383dp"
+        android:layout_height="577dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="412dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_Perfil"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FF5722"
+                android:onClick="irAPerfil"
+                android:text="Perfil"
+                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"

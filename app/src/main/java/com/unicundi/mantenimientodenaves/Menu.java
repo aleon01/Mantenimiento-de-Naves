@@ -14,6 +14,11 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
     }
 
+    public void irAPerfil (View view){
+        Intent perfil =new Intent(this, Perfil.class);
+        startActivity(perfil);
+    }
+
     public void irAInsumos (View view){
         Intent insumos =new Intent(this, Insumos.class);
         startActivity(insumos);
