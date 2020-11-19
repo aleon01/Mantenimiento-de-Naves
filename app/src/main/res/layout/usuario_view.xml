@@ -1,43 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/mainLayout">
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="2dp"
-        android:gravity="center"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center|center_horizontal"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewUsuarioNom"
-            android:layout_width="324dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:text="Nom usuario"
-            android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textViewUsuarioApe"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ape Usuario"
-            android:textSize="18sp" />
+            android:layout_gravity="center|center_horizontal"
+            android:background="@color/common_google_signin_btn_text_light_default"
+            android:foregroundGravity="clip_horizontal|center_horizontal"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/imageButton4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/iconfinder_2_avatar_2754578_120514_1_" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textViewUsuarioNom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="2dp"
+                android:text="Nom usuario"
+                android:textColor="@android:color/background_light"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textViewUsuarioApe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Ape Usuario"
+                android:textColor="@android:color/primary_text_dark"
+                android:textSize="18sp" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/office_trash_can_icon_159187" />
+
+            <!--<ImageButton
+                android:id="@+id/imgDelete"
+                android:layout_width="57dp"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:tint="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/office_trash_can_icon_159187" />-->
+
+            <!--<ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="83dp"
+                android:layout_height="match_parent"
+                android:background="@color/common_google_signin_btn_tint"
+                android:tint="@color/common_google_signin_btn_text_dark_focused"
+                app:srcCompat="@android:drawable/ic_menu_delete" />-->
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

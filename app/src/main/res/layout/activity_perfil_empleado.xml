@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252850"
     tools:context=".PerfilEmpleado">
 
     <LinearLayout
         android:layout_width="332dp"
         android:layout_height="549dp"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +44,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="141dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tV_Empleado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Empleado"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -56,6 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="37dp"
                         android:layout_weight="1"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
 
                     <TextView
@@ -63,12 +74,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="37dp"
                         android:layout_weight="1"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
                 </LinearLayout>
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
 
                 <TextView
                     android:id="@+id/tV_DocumentText"
@@ -76,6 +84,7 @@
                     android:layout_height="5dp"
                     android:layout_weight="1"
                     android:text="@string/txtIdentificación"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="18sp" />
 
                 <TextView
@@ -84,6 +93,7 @@
                     android:layout_height="4dp"
                     android:layout_gravity="end"
                     android:layout_weight="1"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="18sp" />
 
             </LinearLayout>
@@ -95,15 +105,17 @@
             android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:text="@string/txtTelefono"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <EditText
             android:id="@+id/editT_Telefono"
-            android:layout_width="313dp"
+            android:layout_width="298dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="phone"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <TextView
@@ -111,6 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txtDireccion"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <EditText
@@ -120,6 +133,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="textPostalAddress"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <Space

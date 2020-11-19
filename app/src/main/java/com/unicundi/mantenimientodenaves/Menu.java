@@ -30,8 +30,13 @@ public class Menu extends AppCompatActivity {
     }
 
     public void irATareas (View view){
-        Intent tareas =new Intent(this, Tareas.class);
-        startActivity(tareas);
+        Intent actividadesA =new Intent(getApplicationContext(), ActividadesAdmin.class);
+        startActivity(actividadesA);
+    }
+
+    public void irAsignarActividades (View view){
+        Intent actividadesAsigna = new Intent(getApplicationContext(), AsignarActividadAdmi.class);
+        startActivity(actividadesAsigna);
     }
 
     public void irAMantenimiento (View view){

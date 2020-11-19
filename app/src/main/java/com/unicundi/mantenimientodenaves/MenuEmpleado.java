@@ -28,8 +28,8 @@ public class MenuEmpleado extends AppCompatActivity {
     }
 
     public void irATareas (View view){
-        Intent tareas =new Intent(this, Tareas.class);
-        startActivity(tareas);
+        Intent Actividades =new Intent(getApplicationContext(), UsuarioActividades.class);
+        startActivity(Actividades);
     }
 
     public void irAMantenimiento (View view){

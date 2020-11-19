@@ -8,34 +8,13 @@
     tools:context=".Menu">
 
     <LinearLayout
-        android:layout_width="383dp"
-        android:layout_height="577dp"
+        android:layout_width="350dp"
+        android:layout_height="548dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="412dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btn_Perfil"
-                android:layout_width="206dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#FF5722"
-                android:onClick="irAPerfil"
-                android:text="Perfil"
-                android:textColor="@color/common_google_signin_btn_text_dark_default" />
-        </LinearLayout>
 
         <Space
             android:layout_width="match_parent"
@@ -48,9 +27,29 @@
             android:background="@color/common_google_signin_btn_text_dark_disabled"
             android:gravity="center|center_horizontal"
             android:text="Bienvenido Administrador"
-            android:textColor="#FAF8F8"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="28sp"
             android:textStyle="normal|bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="412dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="223dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="irAPerfil"
+                android:text="Perfil" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,12 +59,12 @@
 
             <ImageButton
                 android:id="@+id/imgBtn_insumos"
-                android:layout_width="68dp"
-                android:layout_height="50dp"
+                android:layout_width="79dp"
+                android:layout_height="match_parent"
                 android:background="@color/common_google_signin_btn_text_light_disabled"
                 android:onClick="irAInsumos"
                 android:tint="@color/common_google_signin_btn_text_dark_default"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+                app:srcCompat="@drawable/multiple_inputs_48_46722" />
 
             <Button
                 android:id="@+id/btn_Insumos"
@@ -75,7 +74,7 @@
                 android:background="@color/common_google_signin_btn_text_light_disabled"
                 android:onClick="irAInsumos"
                 android:text="Insumos"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -89,12 +88,13 @@
 
             <ImageButton
                 android:id="@+id/imgBtn_Empleados"
-                android:layout_width="35dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAEmpleados"
-                app:srcCompat="@android:drawable/ic_menu_myplaces" />
+                android:tint="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/usernetwork_120756" />
 
             <Button
                 android:id="@+id/btn_Empleados"
@@ -104,7 +104,36 @@
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAEmpleados"
                 android:text="Empleados"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/background_light"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/common_google_signin_btn_text_light_focused"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgBtn_Asignar"
+                android:layout_width="78dp"
+                android:layout_height="match_parent"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:onClick="irATareas"
+                android:scaleType="center"
+                android:tint="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/tareas" />
+
+            <Button
+                android:id="@+id/btn_Asignar"
+                android:layout_width="259dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/common_google_signin_btn_text_dark_disabled"
+                android:onClick="irATareas"
+                android:text="Tareas Diarias"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -117,12 +146,13 @@
 
             <ImageButton
                 android:id="@+id/imgBtn_Tareas"
-                android:layout_width="wrap_content"
+                android:layout_width="78dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:onClick="irATareas"
-                app:srcCompat="@android:drawable/ic_menu_agenda" />
+                android:onClick="irAsignarActividades"
+                android:scaleType="center"
+                android:tint="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/tareas" />
 
             <Button
                 android:id="@+id/btn_Tareas"
@@ -130,9 +160,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:onClick="irATareas"
-                android:text="Tareas Diarias"
-                android:textColor="@android:color/darker_gray"
+                android:onClick="irAsignarActividades"
+                android:text="Asignar Tareas"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -145,12 +175,13 @@
 
             <ImageButton
                 android:id="@+id/imgBtn_Mantenimiento"
-                android:layout_width="53dp"
+                android:layout_width="87dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAMantenimiento"
-                app:srcCompat="@android:drawable/ic_menu_preferences" />
+                android:tint="@color/common_google_signin_btn_text_dark_default"
+                app:srcCompat="@drawable/site_maintenance_icon_150317_1_" />
 
             <Button
                 android:id="@+id/btn_Mantenimiento"
@@ -160,7 +191,7 @@
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAMantenimiento"
                 android:text="Mantenimiento"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </LinearLayout>

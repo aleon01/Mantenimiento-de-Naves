@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#252850"
     tools:context=".Perfil">
 
     <LinearLayout
         android:layout_width="320dp"
         android:layout_height="543dp"
+        android:background="@color/common_google_signin_btn_text_dark_disabled"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +47,15 @@
                 android:layout_height="141dp"
                 android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/tV_Administrador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Administrador"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="44dp"
@@ -55,6 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="37dp"
                         android:layout_weight="1"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
 
                     <TextView
@@ -62,27 +74,26 @@
                         android:layout_width="wrap_content"
                         android:layout_height="37dp"
                         android:layout_weight="1"
+                        android:textColor="@color/common_google_signin_btn_text_dark_default"
                         android:textSize="18sp" />
                 </LinearLayout>
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="20dp" />
-
                 <TextView
                     android:id="@+id/tV_DocumentText"
-                    android:layout_width="225dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="5dp"
                     android:layout_weight="1"
                     android:text="@string/txtIdentificación"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tV_Documento"
-                    android:layout_width="225dp"
-                    android:layout_height="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_weight="1"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
                     android:textSize="18sp" />
 
             </LinearLayout>
@@ -94,6 +105,7 @@
             android:layout_width="105dp"
             android:layout_height="wrap_content"
             android:text="@string/txtTelefono"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <EditText
@@ -103,6 +115,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="phone"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <TextView
@@ -110,6 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/txtDireccion"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <EditText
@@ -119,6 +133,7 @@
             android:layout_gravity="center"
             android:ems="10"
             android:inputType="textPostalAddress"
+            android:textColor="@color/common_google_signin_btn_text_dark_default"
             android:textSize="18sp" />
 
         <Space

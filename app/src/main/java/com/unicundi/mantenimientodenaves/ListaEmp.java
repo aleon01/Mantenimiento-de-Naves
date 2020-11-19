@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,38 +20,34 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.unicundi.mantenimientodenaves.adapters.UsuariosAdapter;
+import com.unicundi.mantenimientodenaves.model.SelectUsuario;
 import com.unicundi.mantenimientodenaves.model.Usuarios;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ListaEmp extends AppCompatActivity {
+public class ListaEmp extends AppCompatActivity implements SelectUsuario {
 
     private DatabaseReference mDatabase;
-
+    Usuarios user = new Usuarios();
     private UsuariosAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private ArrayList<Usuarios> mUsuarioList = new ArrayList<>();
-    ArrayAdapter<Usuarios> arrayAdapterPersona;
-    //private ListView listView;
-
-    //FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    Usuarios userselect;
+    View vista;
+    Button fabEliminar;
+    Activity actividad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_emp);
 
-        //listView = findViewById(R.id.lv_datosUsuarios);
         mRecyclerView = (RecyclerView) findViewById(R.id.RecycleViewUser);
+        fabEliminar= findViewById(R.id.id_Eliminar);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(ListaEmp.this));
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        getUsuarios();
-    }
-
-    public void getUsuarios(){
         Query dataQuery = mDatabase.child("usuarios").child("empleados");
         dataQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -57,16 +55,12 @@ public class ListaEmp extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     mUsuarioList.clear();
                     for (DataSnapshot objSnaptshot : dataSnapshot.getChildren()) {
+                        //String id = objSnaptshot.child("nombre").getValue().toString();
                         String nombre = objSnaptshot.child("nombre").getValue().toString();
                         String apellido = objSnaptshot.child("apellido").getValue().toString();
                         mUsuarioList.add(new Usuarios(nombre, apellido));
-                        // Usuarios p = objSnaptshot.getValue(Usuarios.class);
-                        //listPerson.add(p);
-
-                        //arrayAdapterPersona = new ArrayAdapter<Usuarios>(ListaEmp.this, android.R.layout.simple_list_item_1, listPerson);
-                        //listView.setAdapter(arrayAdapterPersona);
                     }
-                    mAdapter = new UsuariosAdapter(mUsuarioList, R.layout.usuario_view);
+                    mAdapter = new UsuariosAdapter(mUsuarioList, R.layout.usuario_view, ListaEmp.this);
                     mRecyclerView.setAdapter(mAdapter);
                 }else {
                     Log.e("no hay registros: ", "");
@@ -78,18 +72,32 @@ public class ListaEmp extends AppCompatActivity {
 
             }
         });
-    }
-    public void eliminar(){
-        /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        user.delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "User account deleted.");
-                        }
-                    }
-                });*/
+        fabEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(actividad,"Debe seleccionar un Jugador para poder eliminarlo",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+
+    public void eliminar(int position){
+        mUsuarioList.remove(position);
+        mAdapter.notifyItemRemoved(position);
+
+    }
+
+    @Override
+    public void onItemClick(Usuarios usuarios) {
+        Intent intent = new Intent(ListaEmp.this, DetallesUser.class);
+        intent.putExtra("Nombre: ", usuarios.getNombre());
+    }
+
+    @Override
+    public void onLongItemCLick(int position) {
+
     }
 }
