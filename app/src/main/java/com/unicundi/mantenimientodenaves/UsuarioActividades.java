@@ -3,12 +3,14 @@ package com.unicundi.mantenimientodenaves;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
@@ -20,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import com.unicundi.mantenimientodenaves.model.Actividades_usuarios;
+import com.unicundi.mantenimientodenaves.model.insumo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,20 +37,22 @@ public class UsuarioActividades extends AppCompatActivity {
     private EditText InsumosEdit;
     Actividades_usuarios ActividadSeleccionada;
     private ListView lv_actividades;
-    FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    Spinner sppinerIns;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario_actividades);
-
+        getSupportActionBar().setTitle("TAREAS DIARIAS");
+        //sppinerIns = findViewById(R.id.sppinerInsumo);
         InsumosEdit = findViewById(R.id.EditInsumos);
         lv_actividades = findViewById(R.id.LV_Actividades);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
-
-        inicializarFirebase();
         listarActividades();
+        //listaInsumos();
 
         lv_actividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -55,6 +60,7 @@ public class UsuarioActividades extends AppCompatActivity {
                 ActividadSeleccionada = (Actividades_usuarios) parent.getItemAtPosition(position);
             }
         });
+
     }
 
     private void listarActividades() {
@@ -69,9 +75,7 @@ public class UsuarioActividades extends AppCompatActivity {
                     if(actusers.getCodEmpleado().equals(Uid)&& actusers.getEstado().equals("Faltante")){
                         listaactividades.add(actusers);
                     }
-
-
-                    ArrayAdapterActividad = new ArrayAdapter<Actividades_usuarios>( UsuarioActividades.this, android.R.layout.simple_list_item_1, listaactividades);
+                    ArrayAdapterActividad = new ArrayAdapter<Actividades_usuarios>( UsuarioActividades.this, R.layout.row, listaactividades);
                     lv_actividades.setAdapter(ArrayAdapterActividad);
                 }
             }
@@ -94,15 +98,48 @@ public class UsuarioActividades extends AppCompatActivity {
         actUser.setEstado("Resuelta");
         actUser.setInsumos(insumos);
         databaseReference.child("ActividadesDiarias").child(actUser.getCodigo()).setValue(actUser);
-        Toast.makeText(this, "Tarea Registrada como resuelta", Toast.LENGTH_SHORT).show();
-        listarActividades();
-
-
+        //Toast.makeText(this, "Tarea Registrada como resuelta", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(UsuarioActividades.this, Facturas.class);
+        intent.putExtra("CodActividad:", actUser.getIdActividad());
+        intent.putExtra("NombreAct:", actUser.getNombreActividad());
+        intent.putExtra("Insumos:", actUser.getInsumos());
+        startActivity(intent);
+        //listarActividades();
     }
 
-    private void inicializarFirebase() {
-        FirebaseApp.initializeApp(this);
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference();
-    }
+    /*public void listaInsumos(){
+        final List<insumo> insumos = new ArrayList<>();
+        databaseReference.child("insumos").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String idInsumo = ds.getKey();
+                        String nombreIns = ds.child("nombre").getValue().toString();
+                        String cantidad = ds.child("cantidad").getValue().toString();
+                        String valor = ds.child("valor").getValue().toString();
+                        insumos.add(new insumo(idInsumo, nombreIns, cantidad, valor));
+                    }
+                    ArrayAdapter<insumo> arrayAdapter = new ArrayAdapter<>(UsuarioActividades.this, android.R.layout.simple_dropdown_item_1line, insumos);
+                    sppinerIns.setAdapter(arrayAdapter);
+                    sppinerIns.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }*/
 }

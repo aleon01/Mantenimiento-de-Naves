@@ -37,6 +37,7 @@ public class ActividadesAdmin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades_admin);
+        getSupportActionBar().setTitle("TAREAS DIARIAS");
 
         Actividadedit = findViewById(R.id.editTextActividad);
         Descripcionedit = findViewById(R.id.editTextDescripcion);
@@ -64,7 +65,7 @@ public class ActividadesAdmin extends AppCompatActivity {
                     if(act.getEstadoActvidad() != 0) {
                         listaactividades.add(act);
                     }
-                    ArrayAdapterActividad = new ArrayAdapter<Actividades>( ActividadesAdmin.this, android.R.layout.simple_list_item_1, listaactividades);
+                    ArrayAdapterActividad = new ArrayAdapter<Actividades>( ActividadesAdmin.this, R.layout.row, listaactividades);
                     lv_actividades.setAdapter(ArrayAdapterActividad);
                 }
             }

@@ -44,6 +44,7 @@ public class AsignarActividadAdmi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asignar_actividad_admi);
+        getSupportActionBar().setTitle("ASIGNAR TAREAS");
 
         lv_actividades = findViewById(R.id.LV_Actividades);
         lv_empleados = findViewById(R.id.LV_Empleados);
@@ -80,7 +81,7 @@ public class AsignarActividadAdmi extends AppCompatActivity {
                     String nombreA = objSnapshot.child("nombreActividad").getValue().toString();
                     listaActUsers.add(new Actividades_usuarios(nombre,nombreA));
 
-                    ArrayAdapterUsuariosAct = new ArrayAdapter<Actividades_usuarios>( AsignarActividadAdmi.this, android.R.layout.simple_list_item_1, listaActUsers);
+                    ArrayAdapterUsuariosAct = new ArrayAdapter<Actividades_usuarios>( AsignarActividadAdmi.this, R.layout.row, listaActUsers);
                     lv_ActividadesUsuarios.setAdapter(ArrayAdapterUsuariosAct);
                 }
             }
@@ -101,7 +102,7 @@ public class AsignarActividadAdmi extends AppCompatActivity {
                     Usuarios user = objSnapshot.getValue(Usuarios.class);
                     listaUsuarios.add(user);
 
-                    ArrayAdapterUsuarios = new ArrayAdapter<Usuarios>( AsignarActividadAdmi.this, android.R.layout.simple_list_item_1, listaUsuarios);
+                    ArrayAdapterUsuarios = new ArrayAdapter<Usuarios>( AsignarActividadAdmi.this, R.layout.row, listaUsuarios);
                     lv_empleados.setAdapter(ArrayAdapterUsuarios);
                 }
             }
@@ -123,7 +124,7 @@ public class AsignarActividadAdmi extends AppCompatActivity {
                     if(act.getEstadoActvidad() != 0) {
                         listaactividades.add(act);
                     }
-                    ArrayAdapterActividad = new ArrayAdapter<Actividades>( AsignarActividadAdmi.this, android.R.layout.simple_list_item_1, listaactividades);
+                    ArrayAdapterActividad = new ArrayAdapter<Actividades>( AsignarActividadAdmi.this, R.layout.row, listaactividades);
                     lv_actividades.setAdapter(ArrayAdapterActividad);
                 }
             }

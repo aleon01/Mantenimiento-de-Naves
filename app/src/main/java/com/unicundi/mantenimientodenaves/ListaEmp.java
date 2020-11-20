@@ -41,6 +41,7 @@ public class ListaEmp extends AppCompatActivity implements SelectUsuario {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_emp);
+        getSupportActionBar().setTitle("EMPLEADOS");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecycleViewUser);
         fabEliminar= findViewById(R.id.id_Eliminar);

@@ -34,6 +34,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().setTitle("INICIAR SESION");
 
         correo = findViewById(R.id.txt_correo);
         contrasena = findViewById(R.id.txt_contrasena);

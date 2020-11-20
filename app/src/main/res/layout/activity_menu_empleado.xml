@@ -40,17 +40,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:gravity="center|center_horizontal"
-            android:text="Bienvenido Empleado"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:textSize="28sp"
-            android:textStyle="normal|bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,35 +93,6 @@
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irATareas"
                 android:text="Tareas Diarias"
-                android:textColor="@android:color/background_light"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/common_google_signin_btn_text_light_focused"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imgBtn_Mantenimiento"
-                android:layout_width="53dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:onClick="irAMantenimiento"
-                android:tint="@color/common_google_signin_btn_text_dark_default"
-                app:srcCompat="@drawable/site_maintenance_icon_150317_1_" />
-
-            <Button
-                android:id="@+id/btn_Mantenimiento"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:onClick="irAMantenimiento"
-                android:text="Mantenimiento"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />

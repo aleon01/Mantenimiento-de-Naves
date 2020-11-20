@@ -41,6 +41,7 @@ public class PerfilEmpleado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_empleado);
+        getSupportActionBar().setTitle("PERFIL");
 
         mAuth= FirebaseAuth.getInstance();
         mDatabase = (DatabaseReference) FirebaseDatabase.getInstance().getReference().child("usuarios").child("empleados");

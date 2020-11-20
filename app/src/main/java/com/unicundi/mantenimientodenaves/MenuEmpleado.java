@@ -12,6 +12,7 @@ public class MenuEmpleado extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_empleado);
+        getSupportActionBar().setTitle("EMPLEADO");
     }
 
     public void irAPerfilEmpleado (View view){
@@ -19,21 +20,16 @@ public class MenuEmpleado extends AppCompatActivity {
         startActivity(perfilEmpleado);
     }
     public void irAInsumos (View view){
-        Intent insumos =new Intent(this, Insumos.class);
+        Intent insumos =new Intent(this, IngresarInsumo.class);
         startActivity(insumos);
     }
     public void irAFacturas (View view){
-        Intent facturas =new Intent(this, Facturas.class);
+        Intent facturas =new Intent(this, FacturasVisualizarEmp.class);
         startActivity(facturas);
     }
 
     public void irATareas (View view){
         Intent Actividades =new Intent(getApplicationContext(), UsuarioActividades.class);
         startActivity(Actividades);
-    }
-
-    public void irAMantenimiento (View view){
-        Intent informes =new Intent(this, InformedeMantenimiento.class);
-        startActivity(informes);
     }
 }

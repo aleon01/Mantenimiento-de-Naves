@@ -28,20 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="15dp" />
 
-        <TextView
-            android:id="@+id/textActividades"
-            android:layout_width="match_parent"
-            android:layout_height="65dp"
-            android:gravity="center"
-            android:text="Registro Actividades"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:textStyle="bold" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="17dp" />
-
         <EditText
             android:id="@+id/editTextActividad"
             android:layout_width="match_parent"

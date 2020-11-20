@@ -11,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UsuarioActividades"></activity>
+        <activity android:name=".BuscarInsumo"></activity>
+        <activity android:name=".IngresarInsumo" />
+        <activity android:name=".FacturasVisualizarEmp" />
+        <activity android:name=".FcaturasVisualizar" />
+        <activity android:name=".UsuarioActividades" />
         <activity android:name=".AsignarActividadAdmi" />
         <activity android:name=".ActividadesAdmin" />
         <activity android:name=".DetallesUser" />
@@ -22,8 +26,6 @@
         <activity android:name=".ListaEmp" />
         <activity android:name=".Recuperar" />
         <activity android:name=".Facturas" />
-        <activity android:name=".InformedeMantenimiento" />
-        <activity android:name=".Tareas" />
         <activity android:name=".Insumos" />
         <activity android:name=".Menu" />
         <activity android:name=".RegistroUser" />

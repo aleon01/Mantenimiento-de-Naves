@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#252850"
+    android:background="@drawable/menu"
     tools:context=".ListaEmp">
 
     <LinearLayout
@@ -24,17 +24,6 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
-
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/txtMostEmpleados"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="30sp"
-                android:textStyle="bold" />
 
             <Space
                 android:layout_width="match_parent"

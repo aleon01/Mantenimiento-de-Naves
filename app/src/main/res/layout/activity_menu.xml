@@ -16,21 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="63dp" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="49dp"
-            android:background="@color/common_google_signin_btn_text_dark_disabled"
-            android:gravity="center|center_horizontal"
-            android:text="Bienvenido Administrador"
-            android:textColor="@color/common_google_signin_btn_text_dark_default"
-            android:textSize="28sp"
-            android:textStyle="normal|bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -50,6 +35,10 @@
                 android:text="Perfil" />
 
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="41dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -181,7 +170,7 @@
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAMantenimiento"
                 android:tint="@color/common_google_signin_btn_text_dark_default"
-                app:srcCompat="@drawable/site_maintenance_icon_150317_1_" />
+                app:srcCompat="@drawable/fac" />
 
             <Button
                 android:id="@+id/btn_Mantenimiento"
@@ -190,7 +179,7 @@
                 android:layout_weight="1"
                 android:background="@color/common_google_signin_btn_text_dark_disabled"
                 android:onClick="irAMantenimiento"
-                android:text="Mantenimiento"
+                android:text="Facturas"
                 android:textColor="@android:color/background_light"
                 android:textSize="18sp"
                 android:textStyle="bold" />

@@ -75,5 +75,5 @@ public class Actividades_usuarios {
     }
 
     @Override
-    public String  toString() { return nombreActividad+" "+ nombre; }
+    public String  toString() { return "Empleado: "+nombreActividad +"\nActividad: "+ nombre; }
 }

@@ -12,6 +12,7 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        getSupportActionBar().setTitle("ADMINISTRADOR");
     }
 
     public void irAPerfil (View view){
@@ -20,7 +21,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void irAInsumos (View view){
-        Intent insumos =new Intent(this, Insumos.class);
+        Intent insumos =new Intent(this, IngresarInsumo.class);
         startActivity(insumos);
     }
 
@@ -40,7 +41,7 @@ public class Menu extends AppCompatActivity {
     }
 
     public void irAMantenimiento (View view){
-        Intent informes =new Intent(this, InformedeMantenimiento.class);
-        startActivity(informes);
+        Intent fac =new Intent(this, FcaturasVisualizar.class);
+        startActivity(fac);
     }
 }

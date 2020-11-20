@@ -26,6 +26,7 @@ public class Recuperar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recuperar);
+        getSupportActionBar().setTitle("RECUPERAR CONTRASEÑA");
         correo = findViewById(R.id.txt_correo);
         mAuth = FirebaseAuth.getInstance();
     }

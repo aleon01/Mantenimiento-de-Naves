@@ -55,6 +55,7 @@ public class RegistroUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_user);
+        getSupportActionBar().setTitle("USUARIOS");
         nombreEdit = findViewById(R.id.editTextNombre);
         apellidoEdit = findViewById(R.id.editTextApellido);
         documentoSpinner = (Spinner) findViewById(R.id.tipoIdentificacionEdit);
